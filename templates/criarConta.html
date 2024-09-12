@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <div>
+        <form action="/criarConta" method="POST">
+            <label for="nomeUsuario">Nome do Usuário: </label>
+            <input id="nomeUsuario" name="nomeUsuario" type="text" placeholder="Digite seu nome!" value=chubaca_defnestra maxlength="24" required>
+            <br><br>
+            <label for="idade">Idade:</label>
+            <input id="idade" name="idade" type="date" min="1874-01-01" value="1999-09-09" required>
+            <br><br>
+            <label for="criar-email">Email:</label>
+            <input id="criar-email" name="criar-email" type="email" placeholder="Digite seu email" value="fulanodetal@email" maxlength="60" required>
+            <br><br>
+            <label for="criar-senha">Senha:</label>
+            <input id="criar-senha" name="criar-senha" type="password" placeholder="Digite sua senha" minlength="6" maxlength="60" value="1234567" required>
+            <br><br>
+            <label for="confirmar-senha">Confirmar Senha:</label>
+            <input id="confirmar-senha" name="confirmar-senha" type="password" placeholder="Confirme sua senha" minlength="6" maxlength="60" value="1234567" required>
+            <br><br>
+            <button id="cadastro-button" type="submit">Criar Conta</button>
+        </form>
+        
+    </div>
+    <script src="{{ url_for('static', filename='telaCadastro.js') }}"></script>
+</body>
+</html>

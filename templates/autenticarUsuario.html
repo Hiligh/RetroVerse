@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticação da Conta</title>
+</head>
+<body>
+    <div id="div-autenticação">
+        <h1 id="titulo-autenticação">
+            Autenticação de Email!
+        </h1>
+        <p id="texto-autenticação">
+            Enviamos um email super bonito para {{ email }}!
+            <br>
+            confirme o seu email para que você possa entrar no site.
+        </p>
+        <label for="autenticar-conta">Digite o código de verificação:</label>
+        <input id="autenticar-conta" name="autenticar-conta" type="text" placeholder="Digite aqui o código!" required>
+    </div>
+</body>
+</html>
