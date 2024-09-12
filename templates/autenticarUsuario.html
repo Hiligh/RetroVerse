@@ -6,17 +6,25 @@
     <title>Autenticação da Conta</title>
 </head>
 <body>
-    <div id="div-autenticação">
-        <h1 id="titulo-autenticação">
-            Autenticação de Email!
-        </h1>
-        <p id="texto-autenticação">
+    <div id="div-autenticacao">
+        <h1 id="titulo-autenticacao">Autenticação de Email!</h1>
+        <p id="texto-autenticacao">
             Enviamos um email super bonito para {{ email }}!
             <br>
-            confirme o seu email para que você possa entrar no site.
+            Confirme o seu email para que você possa entrar no site.
         </p>
-        <label for="autenticar-conta">Digite o código de verificação:</label>
-        <input id="autenticar-conta" name="autenticar-conta" type="text" placeholder="Digite aqui o código!" required>
+        
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            
+            <label for="codigo_verificacao">{{ form.codigo_verificacao.label }}</label>
+            {{ form.codigo_verificacao(size=32, id="autenticar-conta", placeholder="Digite aqui o código!") }}
+            {% for error in form.codigo_verificacao.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <p>{{ form.submit() }}</p>
+        </form>
     </div>
 </body>
 </html>

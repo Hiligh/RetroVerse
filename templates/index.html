@@ -5,20 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RetroVerse</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-
 </head>
 <body>
     <div id="div-login">
-        <form method="POST">
-            <label for="login-email">Email:</label>
-            <input id="login-email" name="login-email" type="email" value=caraio@picas.com placeholder="Digite seu usuário">
-            <br><br>
-            <label for="login-senha">Senha:</label>
-            <input id="login-senha" name="login-senha" type="password" value=123456@ placeholder="Digite sua senha">
-            <br><br>
-            <a href="http://127.0.0.1:5000/paginaInicial"><button id="login-button">Login</button></a>
+        <form method="POST" action="{{ url_for('loginUsuario') }}">
+            {{ form.hidden_tag() }}
+            
+            <p>
+                {{ form.email.label }}<br>
+                {{ form.email(size=32) }}<br>
+                {% for error in form.email.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.senha.label }}<br>
+                {{ form.senha(size=32) }}<br>
+                {% for error in form.senha.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+
+            <p>{{ form.submit() }}</p>
         </form>
-        <a href="http://127.0.0.1:5000/criarConta"><button id="create-account-button" >Crie uma agora!</button></a>
+        <a href="{{ url_for('criarUsuario') }}"><button id="create-account-button">Crie uma agora!</button></a>
     </div>
     <div id="erro-msg" style="display:none;">{{ erro }}</div>
     <script src="{{ url_for('static', filename='telaLogin.js') }}"></script>
