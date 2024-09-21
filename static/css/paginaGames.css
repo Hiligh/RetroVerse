@@ -1,0 +1,264 @@
+@import url('variables.css');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color2) !important;
+    color: white !important;
+}
+
+.tamanhoImagens{
+    width: 130px;
+    height: 130px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.sidebar .profile {
+    text-align: center;
+}
+
+.sidebar .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li {
+    margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+.sidebar .contact {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.main-content {
+    flex: 1;
+    background-color: #333;
+    padding: 20px;
+}
+
+.main-content h2 {
+    margin-bottom: 10px;
+}
+
+.game-list {
+    display: flex;
+    gap: 10px;
+}
+
+.game-list img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid #333;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+.col-md-9 {
+    color: rgba(1, 89, 89, 1);
+    width: 100%;
+    height: 100%;
+}
+
+#div-lateral{
+    background-color: var(--color1);
+}
+
+#div-principal{
+    background-color: #f4f4f4;
+    border-radius: 2%;
+    box-shadow: 5px 7px 14px 1px rgba(0, 0, 0, 0.712);
+}
+
+.divs-container-principal{
+    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
+}
+
+.nav-btn {
+    display: block;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background-color: rgba(2, 114, 94, 1);
+    transform: scale(1.05); /* Efeito de leve zoom */
+}
+
+.nav-btn:active {
+    background-color:rgba(2, 114, 94, 1); /* Cor quando clicado */
+    transform: scale(0.98); /* Reduz levemente ao clicar */
+}
+
+/* Estilização do botão sem o link */
+button.nav-btn {
+    background-color: #555;
+}
+
+button.nav-btn:hover {
+    background-color: #666;
+}
+
+/* Estilo para remover o contorno (outline) dos botões quando clicados */
+button.nav-btn:focus, 
+.nav-btn:focus {
+    outline: none;
+}
+
+.poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    color:rgba(2, 140, 101, 1);
+    text-decoration: underline;
+}
+
+#div-contact{
+    background-color: #555555;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 1px 8px 3px rgba(0, 0, 0, 0.534);
+    width: auto;
+   margin-bottom: 10px;
+}
+
+.game-list {
+    display: flex;
+    gap: 10px;
+}
+
+.game-list img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid #333;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+.col-md-9 {
+    color: rgba(1, 89, 89, 1);
+    width: 100%;
+    height: 100%;
+}
+
+#div-lateral{
+    background-color: var(--color1);
+}
+
+#div-principal{
+    background-color: #f4f4f4;
+    border-radius: 2%;
+    box-shadow: 5px 7px 14px 1px rgba(0, 0, 0, 0.712);
+}
+
+.divs-container-principal{
+    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
+}
+
+.nav-btn {
+    display: block;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background-color: rgba(2, 114, 94, 1);
+    transform: scale(1.05); /* Efeito de leve zoom */
+}
+
+.nav-btn:active {
+    background-color:rgba(2, 114, 94, 1); /* Cor quando clicado */
+    transform: scale(0.98); /* Reduz levemente ao clicar */
+}
+
+/* Estilização do botão sem o link */
+button.nav-btn {
+    background-color: #555;
+}
+
+button.nav-btn:hover {
+    background-color: #666;
+}
+
+/* Estilo para remover o contorno (outline) dos botões quando clicados */
+button.nav-btn:focus, 
+.nav-btn:focus {
+    outline: none;
+}
+
+.poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    color:rgba(2, 140, 101, 1);
+    text-decoration: underline;
+}
+
+#div-contact{
+    background-color: #555555;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 1px 8px 3px rgba(0, 0, 0, 0.534);
+    width: auto;
+}

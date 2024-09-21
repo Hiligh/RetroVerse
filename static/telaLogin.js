@@ -10,3 +10,8 @@ document.addEventListener("DOMContentLoaded", function() {
         alert(erro);
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const loginDiv = document.getElementById('div-login');
+    loginDiv.classList.add('active');
+});

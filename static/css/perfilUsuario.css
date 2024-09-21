@@ -1,0 +1,121 @@
+@import url('variables.css');
+
+/* Estilo Geral */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color2) !important;
+}
+
+/* Barra Lateral */
+#div-lateral {
+    background-color: var(--color1);
+    color: white;
+}
+
+#div-lateral h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#div-lateral p {
+    font-size: 1rem;
+}
+
+#div-lateral .nav-btn {
+    color: white;
+    padding: 0.5rem 1rem;
+    display: block;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    background-color: #4a4e69;
+    text-align: center;
+}
+
+#div-lateral .nav-btn:hover {
+    background-color: #6a82fb;
+    color: white;
+}
+
+#div-contact {
+    color: #f1f1f1;
+}
+
+#div-contact p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Conteúdo Principal */
+#div-principal {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+
+/* Estilo de cada seção */
+h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.divs-container-principal {
+    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
+}
+
+.divs-container-principal img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Tamanho das imagens */
+.tamanhoImagens {
+    width: 100px; /* Ajuste conforme necessário */
+    height: 150px; /* Mantém a proporção adequada */
+    object-fit: cover;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #div-lateral {
+        padding: 1rem;
+    }
+
+    .nav-btn {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .tamanhoImagens {
+        width: 80px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    #div-lateral {
+        padding: 0.5rem;
+    }
+
+    .nav-btn {
+        font-size: 0.9rem;
+    }
+
+    .tamanhoImagens {
+        width: 60px;
+        height: 90px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+}

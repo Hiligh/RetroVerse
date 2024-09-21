@@ -1,61 +1,106 @@
-#div-login{
-    background: rgba( 255, 255, 255, 0.2 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 3px );
-    -webkit-backdrop-filter: blur( 3px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    padding: 20px;
-    width: 300px;
-}
-body{
-    background-image: url('../css/bg-image.webp');
+@import url('variables.css');
+
+body {
+  background: linear-gradient(50deg, var(--color1), var(--color3), var(--color5));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-/* From Uiverse.io by cssbuttons-io */ 
-button, #login-button{
-    align-items: center;
-    background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
-    border: 0;
-    border-radius: 8px;
-    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-    box-sizing: border-box;
-    color: #ffffff;
-    display: flex;
-    font-size: 18px;
-    justify-content: center;
-    line-height: 1em;
-    max-width: 100%;
-    min-width: 140px;
-    padding: 3px;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  
-  button:active,
-  button:hover {
-    outline: 0;
-  }
-  
-  button span {
-    background-color: rgb(5, 6, 45);
-    padding: 16px 24px;
-    border-radius: 6px;
-    width: 100%;
-    height: 100%;
-    transition: 300ms;
-  }
-  
-  button:hover span {
-    background: none;
-  }
-  
-  button:active {
-    transform: scale(0.9);
-  }
-  
+#div-login {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 425px;
+  max-height: 500px;
+  height: 100%;
+  width: 100%;
+  padding-top: 60px;
+  background: rgba(255, 255, 255, 0.34);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#div-login h2 {
+  margin-bottom: 30px;
+}
+#create-account-button {
+  width: 100%;
+  margin-top: 1rem;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-control {
+  border-radius: 0.25rem;
+}
+.btn-primary {
+  border-radius: 0.25rem;
+}
+
+.form-label{
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.div-registration{
+  margin-top: 40px;
+  height: 300px;
+  width: 100%;
+  border-color: black;
+}
+
+#div-login {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+#div-login.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* From Uiverse.io by nikk7007 */
+/*.login-buttons {
+  padding: 0.8em 1.8em;
+  border: 2px solid #17C3B2;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: .3s;
+  z-index: 1;
+  font-family: inherit;
+  color: var(--color1);
+}
+
+.login-buttons::before {
+  content: '';
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #17C3B2;
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.login-buttons:hover::before {
+  width: 105%;
+}
+
+.login-buttons:hover {
+  color: #111;
+} */

@@ -18,15 +18,17 @@ def logarUsuario():
         try:
             cursor = conexao.cursor()
             cursor.execute(select_usuario_query, dadosUsuario)
-            conta = cursor.fetchone()
+            conta = cursor.fetchall()
 
             if conta:
                 cursor.close()
                 conexao.close()
                 return redirect('/paginaInicial')
+
             else:
                 #Corrijir para aparecer a mensagem de erro
                 flash('Usuário ou senha incorretos!', 'danger')
+                
 
         except mysql.connector.Error as err:
             print(f"Erro: {err}")

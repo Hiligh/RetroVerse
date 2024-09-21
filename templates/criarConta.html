@@ -3,54 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/telaCadastro.css') }}">
     <title>Cadastro de Usuário</title>
 </head>
 <body>
-    <h1>Cadastro de Usuário</h1>
-    <form method="POST">
-        {{ form.hidden_tag() }}
+    <div id="div-cadastro">
+        <h2 class="text-center">Cadastro de Usuário</h2>
+        <form method="POST">
+            {{ form.hidden_tag() }}
 
-        <p>
-            {{ form.nome.label }}<br>
-            {{ form.nome(size=32) }}<br>
-            {% for error in form.nome.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
+            <div class="form-group">
+                {{ form.nome.label(class="form-label") }}
+                {{ form.nome(class="form-control") }}
+                {% for error in form.nome.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
 
-        <p>
-            {{ form.data_nascimento.label }}<br>
-            {{ form.data_nascimento }}<br>
-            {% for error in form.data_nascimento.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
+            <div class="form-group">
+                {{ form.data_nascimento.label(class="form-label") }}
+                {{ form.data_nascimento(class="form-control") }}
+                {% for error in form.data_nascimento.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
 
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(size=32) }}<br>
-            {% for error in form.email.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
+            <div class="form-group">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-control") }}
+                {% for error in form.email.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
 
-        <p>
-            {{ form.senha.label }}<br>
-            {{ form.senha(size=32) }}<br>
-            {% for error in form.senha.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
+            <div class="form-group">
+                {{ form.senha.label(class="form-label") }}
+                {{ form.senha(class="form-control") }}
+                {% for error in form.senha.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
 
-        <p>
-            {{ form.confirmacao_senha.label }}<br>
-            {{ form.confirmacao_senha(size=32) }}<br>
-            {% for error in form.confirmacao_senha.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
+            <div class="form-group">
+                {{ form.confirmacao_senha.label(class="form-label") }}
+                {{ form.confirmacao_senha(class="form-control") }}
+                {% for error in form.confirmacao_senha.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
 
-        <p>{{ form.submit() }}</p>
-    </form>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary w-100") }}
+            </div>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='telaCadastro.js') }}"></script>
 </body>
 </html>

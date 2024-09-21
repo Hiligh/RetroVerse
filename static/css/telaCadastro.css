@@ -1,0 +1,75 @@
+@import url('variables.css');
+
+body {
+  background: linear-gradient(50deg, var(--color1), var(--color3), var(--color5));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#div-cadastro {
+  background: rgba(255, 255, 255, 0.34);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  max-width: 400px;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+#div-cadastro.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#div-cadastro h2 {
+  margin-bottom: 1rem;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  padding: 10px;
+}
+
+.form-control {
+    display: block;
+    background-color: #ffffff;
+    max-width: 100%;
+    width: calc(100% - 20px);
+    height: 7px;
+    padding: 10px;
+    margin-top: 5px;
+    /* text-align: center; */
+    border: 2px solid white;
+    border-radius: 5px;
+    box-shadow: 3px 4px 6px 0px rgba(0, 0, 0, 0.445);
+    align-items: center;
+}
+
+.form-control:focus {
+    color: var(--color3);
+    background-color: #fdfdfd;
+    outline-color: rgb(78, 214, 78);
+    box-shadow: -3px -3px 15px rgb(78, 214, 78);
+    transition: .1s;
+    transition-property: box-shadow;
+  }
+
+.btn-primary {
+  border-radius: 0.25rem !important;
+  width: 50%;
+}
+
+.form-label{
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
