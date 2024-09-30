@@ -1,0 +1,82 @@
+@import url('variables.css');
+
+body {
+  background: linear-gradient(50deg, var(--color1), var(--color3), var(--color5));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#div-login {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 425px;
+  max-height: 500px;
+  height: 100%;
+  width: 100%;
+  padding-top: 60px;
+  background: rgba(255, 255, 255, 0.34);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#div-login h2 {
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+#create-account-button {
+  width: 100%;
+  margin-top: 1rem;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-control {
+  border-radius: 0.25rem;
+}
+.btn-primary {
+  border-radius: 0.25rem;
+}
+
+.form-label{
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.div-registration{
+  margin-top: 40px;
+  height: 300px;
+  width: 100%;
+  border-color: black;
+}
+
+#div-login {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+#div-login.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.alert.alert-info{
+  padding: 5px;
+  background-color: rgba(255, 12, 12, 0.897);
+  color: #ffffff;
+  font-weight: bold;
+  border-color: rgba(255, 12, 12, 0.897);
+  box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.541);
+}
+
+.div-registration{
+  margin: 0;
+}

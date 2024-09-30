@@ -1,0 +1,118 @@
+@import url('variables.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color2) !important;
+    color: #333;
+}
+
+#div-lateral {
+    background-color: var(--color1);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#div-contact {
+    color: #ddd;
+    font-size: 14px;
+}
+
+#div-contact p {
+    margin-bottom: 5px;
+}
+
+#div-lateral .nav-btn {
+    display: block;
+    width: 100%;
+    background-color: #f4f4f4;
+    color: #333;
+    border: none;
+    padding: 10px 40px 10px 20px; 
+    font-size: 18px;
+    text-align: left;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    position: relative; 
+}
+
+#div-lateral .nav-btn::after {
+    content: '>'; 
+    position: absolute; 
+    right: 25px; 
+    top: 50%; 
+    transform: translateY(-60%); 
+    font-size: 24px; 
+    color: #333; 
+    transition: color 0.3s ease; 
+}
+
+#div-lateral .nav-btn:hover::after {
+    animation: moveRight 0.3s forwards; 
+    color: #f4f4f4; 
+}
+
+@keyframes moveRight {
+    from {
+        transform: translateY(-60%); 
+    }
+    to {
+        transform: translate(10px, -60%); 
+    }
+}
+
+#div-lateral .nav-btn:not(:hover)::after {
+    animation: none; 
+}
+
+#div-lateral .nav-btn:hover {
+    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
+    transform: scale(1.05); 
+    color: #f4f4f4 ;
+}
+
+#div-lateral .nav-btn:active {
+    background-color: rgba(2, 114, 94, 1); 
+    transform: scale(0.98); 
+}
+
+#div-lateral .navbar {
+    margin-bottom: 20px;
+}
+
+#forum-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item {
+    margin-bottom: 10px;
+}
+
+#topico-discussao .list-group-item {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#topico-discussao h3 {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical;
+}
