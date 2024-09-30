@@ -3,38 +3,34 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: var(--color2) !important;
-    color: white !important;
-}
-
-.tamanhoImagens{
-    width: 130px;
-    height: 130px;
-    border-radius: 12px;
-    object-fit: cover;
+    color: #333;
 }
 
 #div-lateral {
     background-color: var(--color1);
-    box-shadow: 5px 7px 14px 1px rgba(0, 0, 0, 0.712);
-}
-
-#div-principal {
-    background-color: #f4f4f4;
-    border-radius: 2%;
-    box-shadow: 5px 7px 14px 1px rgba(0, 0, 0, 0.712);
+    color: #fff;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.divs-container-principal {
-    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
+#div-contact {
+    color: #ddd;
+    font-size: 14px;
 }
 
-.nav-btn {
+#div-contact p {
+    margin-bottom: 5px;
+}
+
+#div-lateral .nav-btn {
     display: block;
     width: 100%;
     background-color: #f4f4f4;
@@ -51,7 +47,7 @@ body {
     position: relative; 
 }
 
-.nav-btn::after {
+#div-lateral .nav-btn::after {
     content: '>'; 
     position: absolute; 
     right: 25px; 
@@ -62,7 +58,7 @@ body {
     transition: color 0.3s ease; 
 }
 
-.nav-btn:hover::after {
+#div-lateral .nav-btn:hover::after {
     animation: moveRight 0.3s forwards; 
     color: #f4f4f4; 
 }
@@ -76,44 +72,47 @@ body {
     }
 }
 
-.nav-btn:not(:hover)::after {
+#div-lateral .nav-btn:not(:hover)::after {
     animation: none; 
 }
 
-.nav-btn:hover {
+#div-lateral .nav-btn:hover {
     background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
     transform: scale(1.05); 
     color: #f4f4f4 ;
 }
 
-.nav-btn:active {
+#div-lateral .nav-btn:active {
     background-color: rgba(2, 114, 94, 1); 
     transform: scale(0.98); 
 }
 
-/* Estilização do botão sem o link */
-button.nav-btn {
-    background-color: #555;
+#div-lateral .navbar {
+    margin-bottom: 20px;
 }
 
-button.nav-btn:hover {
-    background-color: #666;
+#forum-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-button.nav-btn:focus, 
-.nav-btn:focus {
-    outline: none
+.list-group-item {
+    margin-bottom: 10px;
 }
 
-.card-body {
-    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
+#topico-discussao .list-group-item {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 5px;
 }
 
-.card-title {
-    color: white !important;
+#topico-discussao h3 {
+    margin-bottom: 20px;
 }
 
-.div-jogo:hover{
-    transform: scale(1.1);
-    transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+textarea {
+    width: 100%;
+    resize: vertical;
 }

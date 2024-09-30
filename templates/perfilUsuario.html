@@ -13,7 +13,6 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
             <aside id="div-lateral" class="col-md-2 p-4 vh-100 d-flex flex-column">
                 <div class="text-center mb-4">
                     <a href="/perfilUsuario"><img src="../static/css/imagens/4646084.png" alt="Avatar" class="rounded-circle mb-2" width="100" height="100"></a>
@@ -32,7 +31,7 @@
                             <a href="#" class="nav-btn">Likes</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url_for('paginaGames') }}" class="nav-btn">Games</a>
+                            <a href="{{ url_for('paginaGames') }}" class="nav-btn">Biblioteca</a>
                         </li>
                     </ul>
                 </nav>                
@@ -43,24 +42,20 @@
                 </div>
             </aside>
 
-            <!-- Main Content -->
-            <div class="col-md-10">
+            <div class="col-md-10 mt-auto mb-auto">
                 <div class="row">
-                    <!-- Informações Pessoais -->
                     <div class="col-md-12 mb-4">
                         <div class="card">
                             <div class="card-header">
                                 Informações Pessoais
                             </div>
                             <div class="card-body">
-                                <p>Nome</p>
-                                <p>Email</p>
-                                <p>Idade</p>
+                                <p>Nome: {{dadosUser['Nome']}}</p>
+                                <p>Email: {{dadosUser['Email']}}</p>
+                                <p>Idade: {{dadosUser['Idade']}}</p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Estatísticas do Usuário -->
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
@@ -73,6 +68,34 @@
                             </div>
                         </div>
                     </div>
+                    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão de Conta</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Tem certeza de que deseja excluir sua conta? Esta ação não pode ser desfeita.
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                              <button type="button" class="btn btn-danger" id="confirmDelete">Excluir Conta</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="col-md-12 mt-4">
+                          <div class="card">
+                              <div class="card-header">
+                                  Configurações do Usuário
+                              </div>
+                              <div class="card-body">
+                                  <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Excluir Conta</button>
+                              </div>
+                          </div>
+                      </div>
                 </div>
             </div>
         </div>

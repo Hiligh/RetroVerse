@@ -27,13 +27,13 @@
                             <a href="{{ url_for('paginaCatalogo') }}" class="nav-btn">Catálogo</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url_for('paginaReviews') }}" class="nav-btn">Reviews</a>
+                            <a href="#" class="nav-btn">Reviews</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-btn">Likes</a>
+                            <a href="{{ url_for('paginaForum') }}" class="nav-btn">Forum</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url_for('paginaGames') }}" class="nav-btn">Games</a>
+                            <a href="{{ url_for('paginaGames') }}" class="nav-btn">Biblioteca</a>
                         </li>
                     </ul>
                 </nav>                
@@ -47,35 +47,34 @@
             <main id="div-principal" class="col-md-9 m-5 p-5">
                 <section class="mb-5 rounded">
                     <h2 class="text-left poppins-medium">Jogos</h2>
-                    <div class="row text-center justify-content-center divs-container-principal rounded-3 p-3">
-                        <div class="col-2">
-                            <img src="../static/css//imagens/Dark_Souls_2_capa.png" alt="Yakuza" class="
-                            tamanhoImagens">
+                    <div class="row overflow-auto flex-nowrap divs-container-principal rounded-3 p-3">
+                        {% for jogo in jogos[:15] %}
+                        <div class="col-2 mx-2">
+                            <img src="{{ jogo.capsule_image }}" alt="{{ jogo.name }}" class="tamanhoImagens">
                         </div>
-                        <div class="col-2">
-                            <img src="../static/css/imagens/os-carrinhos-7-pintando-o-sete_tNone.webp" alt="Dark Souls" class="tamanhoImagens">
-                        </div>
-                        <div class="col-2">
-                            <img src="../static/css/imagens/Yakuza0p.png" alt="Undertale" class="tamanhoImagens">
-                        </div>
+                        {% endfor %}
                     </div>
                 </section>
-
-                <section class="mb-5">
-                    <h2 class="text-left justify-content-center poppins-medium">Jogando Atualmente</h2>
-                    <div class="row text-center divs-container-principal rounded-3 p-3">
-                        <div class="col-4 offset-md-4">
-                            <img src="../static/css/imagens/barquinhos.jpg" alt="Yakuza" class="tamanhoImagens">
+                
+                <section class="mb-5 rounded">
+                    <h2 class="text-left poppins-medium">Jogando Atualmente</h2>
+                    <div class="row overflow-auto flex-nowrap divs-container-principal rounded-3 p-3">
+                        {% for jogo in jogos[:7] %}
+                        <div class="col-2 mx-2">
+                            <img src="{{ jogo.capsule_image }}" alt="{{ jogo.name }}" class="tamanhoImagens">
                         </div>
-                    </div>   
+                        {% endfor %}
+                    </div>
                 </section>
-
-                <section>
-                    <h2 class="text-left justify-content-center poppins-medium">Jogos Zerados</h2>
-                    <div class="row text-center divs-container-principal rounded-3 p-3">
-                        <div class="col-4 offset-md-4">
-                            <img src="../static/css/imagens/os-carrinhos-7-pintando-o-sete_tNone.webp" alt="Undertale" class="tamanhoImagens">
+                
+                <section class="mb-5 rounded">
+                    <h2 class="text-left poppins-medium">Jogos Zerados</h2>
+                    <div class="row overflow-auto flex-nowrap divs-container-principal rounded-3 p-3">
+                        {% for jogo in jogos[:3] %}
+                        <div class="col-2 mx-2">
+                            <img src="{{ jogo.capsule_image }}" alt="{{ jogo.name }}" class="tamanhoImagens">
                         </div>
+                        {% endfor %}
                     </div>
                 </section>
             </main>
@@ -88,3 +87,4 @@
     <script src="{{ url_for('static', filename='paginaInicial.js') }}"></script>
 </body>
 </html>
+

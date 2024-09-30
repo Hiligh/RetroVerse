@@ -7,6 +7,8 @@ from controllers.catalogo import mostrarCatalogo
 from controllers.reviewsUsuario import reviewsUsuario
 from controllers.gamesUsuario import gamesUsuario
 from controllers.perfilUsuario import perfilUsuario
+from controllers.excluirContaUsuario import excluirConta
+from controllers.paginaForum import Forum
 
 #Teste Requisições!
 #CHAVE API STEAM: 8BF1A490FA51FF973B976E66061F55CE
@@ -44,6 +46,14 @@ def paginaGames():
 @app.route('/perfilUsuario')
 def paginaUsuario():
     return perfilUsuario()
+
+@app.route('/paginaForum')
+def paginaForum():
+    return Forum()
+
+@app.route('/excluirConta', methods=['POST'])
+def excluirContaUsuario():
+    return excluirConta()
 
 if __name__ == '__main__':
     app.run(debug=True)

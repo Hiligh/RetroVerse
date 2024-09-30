@@ -1,6 +1,7 @@
 from forms.forms import AutenticacaoForm
 from flask import redirect, render_template, flash
 
+#Ainda não foi finalizado.
 def autenticarUsuario():
     form = AutenticacaoForm()
     email = "exemplo@email.com"

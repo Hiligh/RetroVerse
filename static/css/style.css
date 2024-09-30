@@ -29,6 +29,7 @@ body {
 
 #div-login h2 {
   margin-bottom: 30px;
+  color: #ffffff;
 }
 #create-account-button {
   width: 100%;
@@ -67,40 +68,15 @@ body {
   transform: scale(1);
 }
 
-/* From Uiverse.io by nikk7007 */
-/*.login-buttons {
-  padding: 0.8em 1.8em;
-  border: 2px solid #17C3B2;
-  position: relative;
-  overflow: hidden;
-  background-color: transparent;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 16px;
-  transition: .3s;
-  z-index: 1;
-  font-family: inherit;
-  color: var(--color1);
+.alert.alert-info{
+  padding: 5px;
+  background-color: rgba(255, 12, 12, 0.897);
+  color: #ffffff;
+  font-weight: bold;
+  border-color: rgba(255, 12, 12, 0.897);
+  box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.541);
 }
 
-.login-buttons::before {
-  content: '';
-  width: 0;
-  height: 300%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  background: #17C3B2;
-  transition: .5s ease;
-  display: block;
-  z-index: -1;
+.div-registration{
+  margin: 0;
 }
-
-.login-buttons:hover::before {
-  width: 105%;
-}
-
-.login-buttons:hover {
-  color: #111;
-} */

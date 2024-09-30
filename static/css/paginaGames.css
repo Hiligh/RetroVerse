@@ -11,8 +11,8 @@ body {
     color: white !important;
 }
 
-.tamanhoImagens{
-    width: 130px;
+.tamanhoImagens {
+    width: 220px;
     height: 130px;
     border-radius: 12px;
     object-fit: cover;
@@ -97,44 +97,75 @@ section {
     height: 100%;
 }
 
-#div-lateral{
+#div-lateral {
     background-color: var(--color1);
 }
 
-#div-principal{
+#div-principal {
     background-color: #f4f4f4;
     border-radius: 2%;
     box-shadow: 5px 7px 14px 1px rgba(0, 0, 0, 0.712);
 }
 
-.divs-container-principal{
+.divs-container-principal {
     background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
 }
 
 .nav-btn {
     display: block;
     width: 100%;
-    background-color: #333;
-    color: #fff;
+    background-color: #f4f4f4;
+    color: #333;
     border: none;
-    padding: 10px;
+    padding: 10px 40px 10px 20px; 
     font-size: 18px;
-    text-align: center;
+    text-align: left;
     border-radius: 5px;
     margin-bottom: 10px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
     cursor: pointer;
+    position: relative; 
+}
+
+.nav-btn::after {
+    content: '>'; 
+    position: absolute; 
+    right: 25px; 
+    top: 50%; 
+    transform: translateY(-60%); 
+    font-size: 24px; 
+    color: #333; 
+    transition: color 0.3s ease; 
+}
+
+.nav-btn:hover::after {
+    animation: moveRight 0.3s forwards; 
+    color: #f4f4f4; 
+}
+
+@keyframes moveRight {
+    from {
+        transform: translateY(-60%); 
+    }
+    to {
+        transform: translate(10px, -60%); 
+    }
+}
+
+.nav-btn:not(:hover)::after {
+    animation: none; 
 }
 
 .nav-btn:hover {
-    background-color: rgba(2, 114, 94, 1);
-    transform: scale(1.05); /* Efeito de leve zoom */
+    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
+    transform: scale(1.05); 
+    color: #f4f4f4 ;
 }
 
 .nav-btn:active {
-    background-color:rgba(2, 114, 94, 1); /* Cor quando clicado */
-    transform: scale(0.98); /* Reduz levemente ao clicar */
+    background-color: rgba(2, 114, 94, 1); 
+    transform: scale(0.98); 
 }
 
 /* Estilização do botão sem o link */
@@ -156,109 +187,15 @@ button.nav-btn:focus,
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     font-style: normal;
-    color:rgba(2, 140, 101, 1);
+    color: rgba(2, 140, 101, 1);
     text-decoration: underline;
 }
 
-#div-contact{
+#div-contact {
     background-color: #555555;
     color: white;
     border-radius: 12px;
     box-shadow: 1px 8px 3px rgba(0, 0, 0, 0.534);
     width: auto;
-   margin-bottom: 10px;
-}
-
-.game-list {
-    display: flex;
-    gap: 10px;
-}
-
-.game-list img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 5px;
-    border: 2px solid #333;
-}
-
-section {
-    margin-bottom: 20px;
-}
-
-.col-md-9 {
-    color: rgba(1, 89, 89, 1);
-    width: 100%;
-    height: 100%;
-}
-
-#div-lateral{
-    background-color: var(--color1);
-}
-
-#div-principal{
-    background-color: #f4f4f4;
-    border-radius: 2%;
-    box-shadow: 5px 7px 14px 1px rgba(0, 0, 0, 0.712);
-}
-
-.divs-container-principal{
-    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
-}
-
-.nav-btn {
-    display: block;
-    width: 100%;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    font-size: 18px;
-    text-align: center;
-    border-radius: 5px;
     margin-bottom: 10px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    cursor: pointer;
-}
-
-.nav-btn:hover {
-    background-color: rgba(2, 114, 94, 1);
-    transform: scale(1.05); /* Efeito de leve zoom */
-}
-
-.nav-btn:active {
-    background-color:rgba(2, 114, 94, 1); /* Cor quando clicado */
-    transform: scale(0.98); /* Reduz levemente ao clicar */
-}
-
-/* Estilização do botão sem o link */
-button.nav-btn {
-    background-color: #555;
-}
-
-button.nav-btn:hover {
-    background-color: #666;
-}
-
-/* Estilo para remover o contorno (outline) dos botões quando clicados */
-button.nav-btn:focus, 
-.nav-btn:focus {
-    outline: none;
-}
-
-.poppins-medium {
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-    font-style: normal;
-    color:rgba(2, 140, 101, 1);
-    text-decoration: underline;
-}
-
-#div-contact{
-    background-color: #555555;
-    color: white;
-    border-radius: 12px;
-    box-shadow: 1px 8px 3px rgba(0, 0, 0, 0.534);
-    width: auto;
 }

@@ -1,0 +1,4 @@
+#Pastas
+venv/
+__pycache__/
+.vscode/

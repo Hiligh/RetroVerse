@@ -23,6 +23,7 @@ body, html {
     font-size: 1rem;
 }
 
+/* AJEITAR OS BOTÒES PRA FICAR NO PADRÃO */
 #div-lateral .nav-btn {
     color: white;
     padding: 0.5rem 1rem;
@@ -55,6 +56,8 @@ body, html {
     border-radius: 0.5rem;
     padding: 2rem;
 }
+
+
 
 /* Estilo de cada seção */
 h2 {
