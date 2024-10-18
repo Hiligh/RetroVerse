@@ -1,0 +1,77 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa; /* Cor de fundo clara para contraste */
+}
+
+#div-lateral {
+    background-color: #343a40; /* Cor de fundo lateral */
+    color: #ffffff; /* Texto branco para contraste */
+}
+
+#div-lateral .nav-btn {
+    color: #ffffff; /* Links em branco */
+    text-decoration: none;
+}
+
+#div-lateral .nav-btn:hover {
+    text-decoration: underline; /* Efeito de hover */
+}
+
+.contact {
+    border-top: 1px solid #ffffff; /* Linha de separação acima do contato */
+    padding-top: 10px; /* Espaço interno no contato */
+}
+
+h2 {
+    color: #007bff; /* Cor azul para os títulos */
+}
+
+.main {
+    background-color: #ffffff; /* Fundo branco para o conteúdo */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.btn-success {
+    background-color: #28a745; /* Cor do botão de sucesso */
+    border: none; /* Remove bordas padrão */
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Cor do botão ao passar o mouse */
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Cor da borda ao focar em um campo */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra ao focar */
+}
+
+.list-group-item {
+    border: 1px solid #e9ecef; /* Borda sutil para itens de lista */
+}
+
+.list-group-item:hover {
+    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para responsividade */
+@media (max-width: 768px) {
+    #div-lateral {
+        display: none; /* Oculta o menu lateral em telas pequenas */
+    }
+}
+
+/* Tornando as palavras "Criar Tópico" e "Título do Tópico" brancas */
+h2.text-center {
+    color: white; /* Para o título "Criar Novo Tópico" */
+}
+
+.form-label {
+    color: white; /* Para o rótulo "Título do Tópico" */
+}
+
+/* Estilo do botão para "Criar tópico" */
+.btn-primary {
+    color: white; /* Para o texto do botão */
+}

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+# RetroVerse
+=======
 # **RetroVerse**
+>>>>>>> 7cc6895f22cdbc7bd2d162215fcbf03bfc98950e
 
 Esse projeto é feito com o intuito de aprender as técnicas da disciplina de gerência de projetos.
 
