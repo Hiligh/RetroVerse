@@ -9,6 +9,10 @@ from controllers.gamesUsuario import gamesUsuario
 from controllers.perfilUsuario import perfilUsuario
 from controllers.excluirContaUsuario import excluirConta
 from controllers.paginaForum import Forum
+from controllers.paginaJogo import mostrarJogo
+from controllers.paginaTopico import criarTopico
+from controllers.paginaVisualizarTopico import visualizarTopico
+from controllers.criarComentario import adicionarComentario
 
 #Teste Requisições!
 #CHAVE API STEAM: 8BF1A490FA51FF973B976E66061F55CE
@@ -47,6 +51,10 @@ def paginaGames():
 def paginaUsuario():
     return perfilUsuario()
 
+@app.route('/topico', methods=['POST', 'GET'])
+def paginaTopico():
+    return criarTopico() 
+
 @app.route('/paginaForum')
 def paginaForum():
     return Forum()
@@ -54,6 +62,18 @@ def paginaForum():
 @app.route('/excluirConta', methods=['POST'])
 def excluirContaUsuario():
     return excluirConta()
+
+@app.route('/paginaJogo/<int:jogo_id>')
+def paginaJogo(jogo_id):
+    return mostrarJogo(jogo_id)
+
+@app.route('/paginaVisualizarTopico/<int:topico_id>', methods=['GET'])
+def paginaVisualizarTopico(topico_id):
+    return visualizarTopico(topico_id)
+
+@app.route('/adicionarComentario/<int:topico_id>', methods=['POST'])
+def criarComentario(topico_id):
+    return adicionarComentario(topico_id)
 
 if __name__ == '__main__':
     app.run(debug=True)

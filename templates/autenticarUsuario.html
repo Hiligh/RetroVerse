@@ -3,28 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/autenticarUsuario.css') }}">
     <title>Autenticação da Conta</title>
 </head>
 <body>
     <div id="div-autenticacao">
-        <h1 id="titulo-autenticacao">Autenticação de Email!</h1>
+        <h1 id="titulo-autenticacao">Autenticação de Email</h1>
         <p id="texto-autenticacao">
-            Enviamos um email super bonito para {{ email }}!
+            Enviamos um email super bonito para <span id="email-usuario">{{emailUsuario}}</span>
+            <br>
             <br>
             Confirme o seu email para que você possa entrar no site.
         </p>
         
+        <!-- Fazer a possibilidade do usuário colar o código e preencher automaticamente. -->
         <form method="POST">
             {{ form.hidden_tag() }}
-            
-            <label for="codigo_verificacao">{{ form.codigo_verificacao.label }}</label>
-            {{ form.codigo_verificacao(size=32, id="autenticar-conta", placeholder="Digite aqui o código!") }}
-            {% for error in form.codigo_verificacao.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
+            <div class="input-container">
+                <input class="input-box" type="text" maxlength="1" oninput="moveFocus(this, 'input2')">
+                <input class="input-box" id="input2" type="text" maxlength="1" oninput="moveFocus(this, 'input3')">
+                <input class="input-box" id="input3" type="text" maxlength="1" oninput="moveFocus(this, 'input4')">
+                <input class="input-box" id="input4" type="text" maxlength="1" oninput="moveFocus(this, 'input5')">
+                <input class="input-box" id="input5" type="text" maxlength="1" oninput="moveFocus(this, 'input6')">
+                <input class="input-box" id="input6" type="text" maxlength="1">
+            </div>
 
-            <p>{{ form.submit() }}</p>
+            <input type="hidden" id="codigo_verificacao" name="codigo_verificacao">
+            <button class="confirm-btn" type="submit">
+                <span class="transition"></span>
+                <span class="gradient"></span>
+                <span class="label">Confirmar</span>
+            </button>
         </form>
+        <p class="text-center">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-info">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </p>
     </div>
+    <script src="{{ url_for('static', filename='autenticarUsuario.js') }}"></script>
 </body>
 </html>

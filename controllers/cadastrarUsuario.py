@@ -1,6 +1,6 @@
 from forms.forms import CadastroForm
 from data.conectarBD import conectarBD
-from flask import redirect, render_template, flash
+from flask import redirect, render_template, flash, session
 import mysql.connector
 
 #Pega as informações do usuário na tag <form> da página criarConta e salva no banco de dados.
@@ -60,8 +60,7 @@ def cadastrarUsuario():
         finally:
             cursor.close()
             conexao.close()
-        
-        #Redireciona para a página de login, caso tenha dado certo(Por enquanto).
-        #Quando a autenticação de email for implementada, redirecionara para 'autenticarUsuario'
-        return redirect('/')
+        session['nome_usuario'] = nomeUsuario
+        session['email_usuario'] = emailUsuario
+        return redirect('/autenticarUsuario')
     return render_template('criarConta.html', form=form)
