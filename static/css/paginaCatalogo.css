@@ -110,7 +110,6 @@ button.nav-btn:focus,
 }
 
 .card-title {
-    text-decoration-line: underline !important;
     color: white !important;
 }
 
@@ -122,4 +121,26 @@ button.nav-btn:focus,
 .aviso-jogos{
     color: black;
     font-weight: bold;
+}
+
+#suggestionsDropdown {
+    position: absolute;
+    z-index: 1000;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 100%;
+    display: none;
+}
+
+#suggestionsDropdown .dropdown-item {
+    cursor: pointer;
+    padding: 8px 12px;
+}
+
+#suggestionsDropdown .dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+#suggestionsDropdown .disabled {
+    color: #6c757d;
 }

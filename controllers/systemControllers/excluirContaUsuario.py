@@ -10,13 +10,16 @@ def excluirConta():
 
     conexao = conectarBD()
 
-    delete_usuario_query = """
-    DELETE FROM conta WHERE CodigoConta = %s
-    """
-
     try:
         cursor = conexao.cursor()
+
+        cursor.execute("SET FOREIGN_KEY_CHECKS = 0;")
+
+        delete_usuario_query = "DELETE FROM conta WHERE CodigoConta = %s"
         cursor.execute(delete_usuario_query, (user_id,))
+
+        cursor.execute("SET FOREIGN_KEY_CHECKS = 1;")
+
         conexao.commit()
 
         session.pop('user_id', None)

@@ -136,3 +136,36 @@ button.nav-btn:focus,
 .textoPaginaJogo{
     color: black;
 }
+
+.rating .star {
+    font-size: 2rem;
+    cursor: pointer;
+    color: lightgray; /* Cor padrão (não selecionada) */
+}
+
+.rating .star.selected {
+    color: gold; /* Cor quando a estrela é selecionada */
+}
+
+.rating {
+    font-size: 2rem; /* Tamanho das estrelas */
+    display: flex;
+    gap: 0.5rem;
+}
+
+.star {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.star.selected {
+    color: gold; /* Cor para estrelas selecionadas */
+}
+
+.star:hover {
+    color: gold; /* Mudar a cor ao passar o mouse por cima */
+}
+
+.textoAvaliação{
+    color: #000000;
+}

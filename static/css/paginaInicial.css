@@ -1,10 +1,14 @@
 @import url('variables.css');
 
 /* Estilo Geral */
-body, html {
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Poppins', Arial, sans-serif;
     background-color: var(--color2) !important;
 }
 
@@ -12,33 +16,64 @@ body, html {
 #div-lateral {
     background-color: var(--color1);
     color: white;
-}
-
-#div-lateral h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
+    box-shadow: 5px 7px 14px 1px rgba(0, 0, 0, 0.712);
+    padding: 1rem;
 }
 
 #div-lateral p {
     font-size: 1rem;
 }
 
-/* AJEITAR OS BOTÒES PRA FICAR NO PADRÃO */
-#div-lateral .nav-btn {
-    color: white;
-    padding: 0.5rem 1rem;
+.nav-btn {
     display: block;
+    width: 100%;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 10px 20px;
     font-size: 1.2rem;
-    text-decoration: none;
-    margin-bottom: 1rem;
+    text-align: left;
     border-radius: 0.25rem;
-    background-color: #4a4e69;
-    text-align: center;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    position: relative;
 }
 
-#div-lateral .nav-btn:hover {
-    background-color: #6a82fb;
-    color: white;
+.nav-btn::after {
+    content: '>';
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-60%);
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.nav-btn:hover::after {
+    animation: moveRight 0.3s forwards;
+    color: #f4f4f4;
+}
+
+@keyframes moveRight {
+    from {
+        transform: translateY(-60%);
+    }
+    to {
+        transform: translate(10px, -60%);
+    }
+}
+
+.nav-btn:hover {
+    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
+    transform: scale(1.05);
+    color: #f4f4f4 !important;
+}
+
+.nav-btn:active {
+    background-color: rgba(2, 114, 94, 1);
+    transform: scale(0.98);
 }
 
 #div-contact {
@@ -47,41 +82,90 @@ body, html {
 
 #div-contact p {
     font-size: 0.9rem;
-    margin: 0;
 }
 
-/* Conteúdo Principal */
 #div-principal {
-    background-color: #fff;
-    border-radius: 0.5rem;
+    background-color: #f4f4f4;
+    border-radius: 2%;
+    box-shadow: 5px 7px 14px 1px rgba(0, 0, 0, 0.712);
     padding: 2rem;
 }
 
-
-
-/* Estilo de cada seção */
 h2 {
     font-size: 1.8rem;
     font-weight: 500;
     margin-bottom: 1.5rem;
 }
 
-.divs-container-principal {
+.divs-container-principal .carousel {
     background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
+    cursor: pointer;
+    white-space: nowrap;
 }
 
-.divs-container-principal img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+/* Espaçamento e estilo dos cartões */
+.div-jogo {
+    flex: 1 1; /* Define largura mínima de 150px, os cartões se ajustam automaticamente */
+    width: 300px !important; /* Limita o tamanho máximo dos cartões */
+    margin: 10px; /* Espaçamento entre os cartões */
+    transition: transform 0.3s ease;
 }
 
-/* Tamanho das imagens */
+.div-jogo:hover {
+    transform: scale(1.05);
+}
+
+.card {
+    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%; /* Ajusta a largura do cartão para ocupar toda a coluna */
+}
+
 .tamanhoImagens {
-    width: 100px; /* Ajuste conforme necessário */
-    height: 150px; /* Mantém a proporção adequada */
+    width: 100%; /* Ocupar toda a largura do cartão */
+    height: 100px; /* Altura fixa para imagens menores */
     object-fit: cover;
+    border-radius: 8px;
+}
+
+.card-title {
+    color: #ffffff !important;
+}
+
+/* Estilo para os cards dos tópicos */
+.card-header {
+    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5)); /* Azul padrão do Bootstrap */
+    font-size: 1.5rem; /* Aumenta o tamanho do texto do título */
+    font-weight: bold; /* Título em negrito */
+    text-align: center; /* Centraliza o texto do título */
+    border-top-left-radius: 8px; /* Canto superior esquerdo arredondado */
+    border-top-right-radius: 8px; /* Canto superior direito arredondado */
+}
+
+.card-body {
+    padding: 15px; /* Adiciona mais espaço no interior do card */
+    background: var(--color1); /* Mantém o fundo da parte do corpo do card */
+    color: white;
+    font-size: 1rem; /* Aumenta o tamanho do texto no corpo do card */
+}
+
+/* Ajuste para os textos */
+.card-text {
+    color: #fff; /* Mantém o texto em branco para melhor contraste */
+    font-size: 1rem; /* Aumenta o tamanho do texto */
+}
+
+/* Ajustes para melhorar a legibilidade */
+.card-body p {
+    font-size: 1rem; /* Aumenta o tamanho do texto nas descrições */
+}
+
+/* Estilo para as badges */
+.badge {
+    font-size: 0.8rem;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
 }
 
 /* Responsividade */
@@ -99,8 +183,15 @@ h2 {
     }
 
     .tamanhoImagens {
-        width: 80px;
-        height: 120px;
+        height: 90px;
+    }
+
+    .card-header {
+        font-size: 1.2rem; /* Diminui um pouco o tamanho em telas menores */
+    }
+
+    .card-text {
+        font-size: 0.9rem; /* Ajuste em telas menores */
     }
 }
 
@@ -113,12 +204,50 @@ h2 {
         font-size: 0.9rem;
     }
 
-    .tamanhoImagens {
-        width: 60px;
-        height: 90px;
-    }
-
     h2 {
         font-size: 1.2rem;
     }
+
+    .tamanhoImagens {
+        height: 80px;
+    }
+}
+
+/* TUTORIAL */
+/* Estilos para o tutorial */
+#tutorial-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#tutorial-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.destaque {
+    border: 3px solid var(--color5);
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+/* Estilo opcional para o texto do tutorial */
+.tutorial-text {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.card-text {
+    color: #fff;
 }
