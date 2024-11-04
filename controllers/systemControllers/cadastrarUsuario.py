@@ -3,7 +3,6 @@ from data.conectarBD import conectarBD
 from flask import redirect, render_template, flash, session
 import mysql.connector
 
-#Pega as informações do usuário na tag <form> da página criarConta e salva no banco de dados.
 def cadastrarUsuario():
     form = CadastroForm()
     
@@ -41,15 +40,26 @@ def cadastrarUsuario():
         try:
             foto_perfil = "https://randomuser.me/api/portraits/men/1.jpg"
             insert_conta_query = """
-            INSERT INTO conta (Nome, Email, Senha, FotoPerfil, Idade)
-            VALUES (%s, %s, %s, %s, %s)
+            INSERT INTO conta (Nome, Email, Senha, FotoPerfil, Idade, Autenticacao)
+            VALUES (%s, %s, %s, %s, %s, %s)
             """
-            dadosUsuario = (nomeUsuario, emailUsuario, senhaUsuario, foto_perfil, idadeUsuario)
+            dadosUsuario = (nomeUsuario, emailUsuario, senhaUsuario, foto_perfil, idadeUsuario, False)
             
             cursor = conexao.cursor()
             cursor.execute(insert_conta_query, dadosUsuario)
             conexao.commit()
             flash('Conta criada com sucesso!', 'success')
+
+            codigoConta = cursor.lastrowid
+
+            criar_listas_usuario = """
+            INSERT INTO lista (Tipolista, CodigoConta)
+            VALUES (%s, %s)
+            """
+            tipos_lista = ["Jogos", "Jogando Atualmente", "Jogos Zerados"]
+            for tipo in tipos_lista:
+                cursor.execute(criar_listas_usuario, (tipo, codigoConta))
+            conexao.commit()
 
         except mysql.connector.Error as err:
             print(f"Erro: {err}")

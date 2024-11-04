@@ -92,14 +92,75 @@ body {
 }
 
 #forum-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
+/* Botão "Criar Tópico" */
+#forum-content .btn-primary {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#forum-content .btn-primary:hover {
+    background-color: var(--color4);
+    transform: scale(1.05);
+}
+
+/* Dropdown de Ordenação */
+#forum-content select {
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #ebebeb;
+    transition: background-color 0.3s ease;
+}
+
+#forum-content select:hover {
+    background-color: #dcdcdc;
+}
+
+/* Lista de tópicos */
 .list-group-item {
+    background-color: #f9f9f9;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 15px;
+    padding: 20px;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.list-group-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+}
+
+/* Título do tópico */
+.list-group-item h5 {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: var(--color4);
     margin-bottom: 10px;
+}
+
+/* Texto e data do tópico */
+.list-group-item p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Informações adicionais (comentários e curtidas) */
+.list-group-item small {
+    color: #888;
+}
+
+.list-group-item .d-flex small {
+    font-size: 0.9em;
 }
 
 #topico-discussao .list-group-item {
@@ -115,4 +176,35 @@ body {
 textarea {
     width: 100%;
     resize: vertical;
+}
+
+select {
+    width: 170px;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    padding-left: 7px;
+    background-color: #ebebeb;
+}
+
+select:hover {
+    background-color: #dcdcdc;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#comment-form {
+    display: none;
+}
+
+.form-visible #comment-section {
+    margin-top: 20px;
 }

@@ -1,18 +1,26 @@
 from flask import Flask
-from controllers.logarUsuario import logarUsuario
-from controllers.cadastrarUsuario import cadastrarUsuario
-from controllers.homePage import homePage
-from controllers.autenticarUsuario import autenticarUsuario
-from controllers.catalogo import mostrarCatalogo
-from controllers.reviewsUsuario import reviewsUsuario
-from controllers.gamesUsuario import gamesUsuario
-from controllers.perfilUsuario import perfilUsuario
-from controllers.excluirContaUsuario import excluirConta
-from controllers.paginaForum import Forum
-from controllers.paginaJogo import mostrarJogo
-from controllers.paginaTopico import criarTopico
-from controllers.paginaVisualizarTopico import visualizarTopico
-from controllers.criarComentario import adicionarComentario
+from controllers.systemControllers.logarUsuario import logarUsuario
+from controllers.systemControllers.cadastrarUsuario import cadastrarUsuario
+from controllers.systemControllers.homePage import homePage
+from controllers.systemControllers.autenticarUsuario import autenticarUsuario
+from controllers.catalogoControllers.catalogo import mostrarCatalogo
+from controllers.systemControllers.gamesUsuario import gamesUsuario
+from controllers.systemControllers.perfilUsuario import perfilUsuario
+from controllers.systemControllers.excluirContaUsuario import excluirConta
+from controllers.forumControllers.paginaForum import Forum
+from controllers.gameControllers.paginaJogo import mostrarJogo
+from controllers.forumControllers.paginaTopico import criarTopico
+from controllers.forumControllers.paginaVisualizarTopico import visualizarTopico
+from controllers.userControllers.criarComentario import adicionarComentario
+from controllers.userControllers.atualizarPerfil import atualizarPerfil
+from controllers.userControllers.curtirTopico import curtirTopico
+from controllers.userControllers.avaliarJogo import avaliarJogo
+from controllers.catalogoControllers.dropDCatalogo import dropdownCatalogo
+from controllers.userControllers.descurtirTopico import descurtirTopico
+from controllers.gameControllers.adicionarJogosLista import adicionarJogos
+from controllers.systemControllers.logoff import deslogarUsuario
+from controllers.systemControllers.historicoUsuario import mostrarHistorico
+from controllers.systemControllers.autenticacaoDoisFatores import ativarAutenticacao
 
 #Teste Requisições!
 #CHAVE API STEAM: 8BF1A490FA51FF973B976E66061F55CE
@@ -22,6 +30,11 @@ app.config['SECRET_KEY'] = 'minha_chave_secreta'
 @app.route('/', methods=['GET', 'POST'])
 def loginUsuario():
     return logarUsuario()
+
+@app.route('/logoff', methods=['GET'])
+def logoffUsuario():
+    return deslogarUsuario()
+
 
 @app.route('/criarConta', methods=['GET', 'POST'])
 def criarUsuario():
@@ -38,10 +51,6 @@ def autenticarConta():
 @app.route('/paginaCatalogo', methods=['GET', 'POST'])
 def paginaCatalogo():
     return mostrarCatalogo()
-
-@app.route('/paginaReviews')
-def paginaReviews():
-    return reviewsUsuario()
 
 @app.route('/paginaGames')
 def paginaGames():
@@ -74,6 +83,38 @@ def paginaVisualizarTopico(topico_id):
 @app.route('/adicionarComentario/<int:topico_id>', methods=['POST'])
 def criarComentario(topico_id):
     return adicionarComentario(topico_id)
+
+@app.route('/atualizarPerfil', methods=['POST'])
+def atualizarInformaçõesPerfil():
+    return atualizarPerfil()
+
+@app.route('/curtir/<int:topico_id>', methods=['POST'])
+def curtidasTopico(topico_id):
+    return curtirTopico(topico_id)
+
+@app.route('/avaliarJogo', methods=['POST'])
+def avaliar_jogo():
+    return avaliarJogo()
+
+@app.route('/dropdownCatalogo', methods=['POST'])
+def buscar_sugestoes():
+    return dropdownCatalogo()
+
+@app.route('/descurtir/<int:topico_id>', methods=['POST'])
+def descurtirTopicoRoute(topico_id):
+    return descurtirTopico(topico_id)
+
+@app.route('/adicionarJogosLista', methods=['POST'])
+def adicionarJogosLista():
+    return adicionarJogos()
+
+@app.route('/historicoUsuario', methods=['GET'])
+def historicoUsuario():
+    return mostrarHistorico()
+
+@app.route('/ativarAutenticacao', methods=['POST'])
+def autenticacaoDoisFatores():
+    return ativarAutenticacao()
 
 if __name__ == '__main__':
     app.run(debug=True)

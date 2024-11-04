@@ -1,38 +1,178 @@
+@import url('variables.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa; /* Cor de fundo clara para contraste */
+    background-color: var(--color2) !important; /* Mantém o fundo do primeiro trecho */
+    color: #333;
 }
 
 #div-lateral {
-    background-color: #343a40; /* Cor de fundo lateral */
-    color: #ffffff; /* Texto branco para contraste */
+    background-color: var(--color1); /* Cor de fundo lateral */
+    color: #fff; /* Texto branco para contraste */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#div-contact {
+    color: #ddd;
+    font-size: 14px;
+}
+
+#div-contact p {
+    margin-bottom: 5px;
 }
 
 #div-lateral .nav-btn {
-    color: #ffffff; /* Links em branco */
+    display: block;
+    width: 100%;
+    background-color: #f4f4f4;
+    color: #000000; /* Links em branco */
+    border: none;
+    padding: 10px 40px 10px 20px; 
+    font-size: 18px;
+    text-align: left;
+    border-radius: 5px;
+    margin-bottom: 10px;
     text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    position: relative; 
+}
+
+#div-lateral .nav-btn::after {
+    content: '>'; 
+    position: absolute; 
+    right: 25px; 
+    top: 50%; 
+    transform: translateY(-60%); 
+    font-size: 24px; 
+    color: #333; 
+    transition: color 0.3s ease; 
+}
+
+#div-lateral .nav-btn:hover::after {
+    animation: moveRight 0.3s forwards; 
+    color: #f4f4f4; 
+}
+
+@keyframes moveRight {
+    from {
+        transform: translateY(-60%); 
+    }
+    to {
+        transform: translate(10px, -60%); 
+    }
+}
+
+#div-lateral .nav-btn:not(:hover)::after {
+    animation: none; 
 }
 
 #div-lateral .nav-btn:hover {
-    text-decoration: underline; /* Efeito de hover */
+    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
+    transform: scale(1.05); 
+    color: #f4f4f4 ;
 }
 
-.contact {
-    border-top: 1px solid #ffffff; /* Linha de separação acima do contato */
-    padding-top: 10px; /* Espaço interno no contato */
+#div-lateral .nav-btn:active {
+    background-color: rgba(2, 114, 94, 1); 
+    transform: scale(0.98); 
 }
 
-h2 {
-    color: #007bff; /* Cor azul para os títulos */
+#div-lateral .navbar {
+    margin-bottom: 20px;
 }
 
-.main {
-    background-color: #ffffff; /* Fundo branco para o conteúdo */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+#forum-content {
+    background-color: white; /* Fundo branco para o conteúdo */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
+.list-group-item {
+    margin-bottom: 10px;
+    border: 1px solid #e9ecef; /* Borda sutil para itens de lista */
+}
+
+#topico-discussao .list-group-item {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#topico-discussao h3 {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical;
+}
+
+select {
+    width: 170px;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    padding-left: 7px;
+    background-color: #ebebeb;
+}
+
+select:hover {
+    background-color: #dcdcdc;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CSS for hidden form */
+#comment-form {
+    display: none;
+}
+
+/* Move comments down when form is visible */
+.form-visible #comment-section {
+    margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #div-lateral {
+        display: none; /* Oculta o menu lateral em telas pequenas */
+    }
+}
+
+/* Tornando as palavras "Criar Tópico" e "Título do Tópico" brancas */
+h2.text-center {
+    color: black !important; /* Para o título "Criar Novo Tópico" */
+}
+
+.form-label {
+    color: black; /* Para o rótulo "Título do Tópico" */
+}
+
+/* Estilo do botão para "Criar tópico" */
+.btn-primary {
+    color: white; /* Para o texto do botão */
+}
+
+/* Estilo do botão de sucesso */
 .btn-success {
     background-color: #28a745; /* Cor do botão de sucesso */
     border: none; /* Remove bordas padrão */
@@ -47,31 +187,170 @@ h2 {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra ao focar */
 }
 
-.list-group-item {
-    border: 1px solid #e9ecef; /* Borda sutil para itens de lista */
-}
-
 .list-group-item:hover {
     background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
 }
 
-/* Estilo para responsividade */
+/* Estilo moderno para os comentários */
+#comment-section .card-body .mb-3 {
+    background-color: #f9f9f9; /* Fundo claro para destaque */
+    border: 1px solid #e1e1e1; /* Borda sutil */
+    border-radius: 12px; /* Bordas arredondadas */
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#comment-section .card-body .mb-3:hover {
+    transform: translateY(-4px); /* Elevação ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Intensifica a sombra */
+}
+
+#comment-section .card-body .mb-3 strong {
+    color: #333; /* Nome em destaque */
+    font-size: 1.1em;
+}
+
+#comment-section .card-body .mb-3 p {
+    color: #555; /* Cor sutil para o texto */
+    font-size: 0.95em;
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+/* Estilo para o formulário de comentário */
+#comment-form .card-header {
+    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5)); 
+    color: white; 
+    border-radius: 8px 8px 0 0; /* Bordas arredondadas superiores */
+    font-weight: bold;
+}
+
+#comment-form .card-body {
+    background-color: #fafafa; /* Fundo claro para formulário */
+    border: 1px solid #e1e1e1;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do botão de enviar comentário */
+#comment-form .btn-success {
+    background-color: #4CAF50; /* Cor do botão */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+#comment-form .btn-success:hover {
+    background-color: #45a049;
+}
+
+/* Ajustes de espaçamento entre comentários */
+#comment-section .card-header {
+    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5)); 
+    color: white;
+    border-radius: 8px;
+}
+
+#comment-section .card {
+    border: none; /* Remove borda padrão do card */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+
+/* Estilos de cartão do tópico */
+#topic-card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#topic-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+#topic-card .card-body {
+    padding: 2rem;
+}
+
+#topic-card h2 {
+    color: #343a40;
+    font-weight: bold;
+}
+
+#topic-card .topic-description {
+    color: #6c757d;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+#topic-card .topic-header {
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+#topic-card .details p {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+#topic-card .badge {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+}
+
+#like-button, #comment-button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#like-button {
+    background-color: #0d6efd;
+    color: #ffffff;
+    border: none;
+}
+
+#like-button:hover {
+    background-color: #0a58ca;
+    transform: scale(1.05);
+}
+
+#comment-button {
+    background-color: #6c757d;
+    color: #ffffff;
+    border: none;
+}
+
+#comment-button:hover {
+    background-color: #5a6268;
+    transform: scale(1.05);
+}
+
+/* Responsividade para dispositivo móvel */
 @media (max-width: 768px) {
-    #div-lateral {
-        display: none; /* Oculta o menu lateral em telas pequenas */
+    #forum-content {
+        padding: 1.5rem;
+        height: auto; /* Ajusta altura para dispositivos menores */
+    }
+
+    #topic-card .card-body {
+        padding: 1.5rem;
+    }
+
+    #like-button, #comment-button {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
     }
 }
 
-/* Tornando as palavras "Criar Tópico" e "Título do Tópico" brancas */
-h2.text-center {
-    color: white; /* Para o título "Criar Novo Tópico" */
-}
-
-.form-label {
-    color: white; /* Para o rótulo "Título do Tópico" */
-}
-
-/* Estilo do botão para "Criar tópico" */
-.btn-primary {
-    color: white; /* Para o texto do botão */
-}

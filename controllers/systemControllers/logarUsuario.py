@@ -1,9 +1,8 @@
 from forms.forms import LoginForm
 from data.conectarBD import conectarBD
-from flask import redirect, render_template, flash, session
+from flask import redirect, render_template, flash, session, url_for
 import mysql.connector
 
-#Após logar o usuário, salva as informações em uma session para usos futuros dos dados do usuário.
 def logarUsuario():
     form = LoginForm()
     if form.validate_on_submit():
@@ -23,8 +22,13 @@ def logarUsuario():
 
             if conta:
                 session['user_id'] = conta['CodigoConta']
-                cursor.close()
-                conexao.close()
+                session['email_usuario'] = emailUsuario
+                session['nome_usuario'] = conta['Nome']
+                session['two_factor_enabled'] = conta.get('Autenticacao') == 1
+
+                if session['two_factor_enabled']:
+                    return redirect(url_for('autenticarConta'))
+
                 return redirect('/paginaInicial')
             else:
                 flash('Usuário ou senha incorretos!', 'danger')
@@ -38,3 +42,4 @@ def logarUsuario():
             conexao.close()
 
     return render_template('index.html', form=form)
+

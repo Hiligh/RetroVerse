@@ -1,4 +1,4 @@
-//Ao apertar no botão dele, ele usa a rota de /excluirConta para excluir os dados do usuário no banco de dados.
+
 document.getElementById('confirmDelete').addEventListener('click', function() {
 
     fetch('/excluirConta', {
@@ -16,4 +16,26 @@ document.getElementById('confirmDelete').addEventListener('click', function() {
         }
     })
     .catch(error => console.error('Erro:', error));
+});
+
+document.getElementById('ativarAutenticacaoBtn').addEventListener('click', function() {
+    fetch('/ativarAutenticacao', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token() }}'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert(data.message);
+        } else {
+            alert('Erro ao ativar autenticação: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Ocorreu um erro. Tente novamente.');
+    });
 });

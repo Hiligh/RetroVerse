@@ -100,14 +100,18 @@ def autenticarUsuario():
     codigoAutenticador = pyotp.TOTP(chaveMestre)
     print(codigoAutenticador.now())
     form = AutenticacaoForm()
+    
+    autenticacaoAtivada = session.get('two_factor_enabled')
+    print(autenticacaoAtivada)
 
-    enviarEmail(emailUser, nomeUser, codigoAutenticador.now())
     if form.validate_on_submit():
         codigo_verificacao = form.codigo_verificacao.data
         print(codigo_verificacao)
         if codigoAutenticador.verify(codigo_verificacao, valid_window=2):
-            print('chegou aqui!!!!!')
             flash('Autenticação concluída com sucesso!', 'success')
+            if(autenticacaoAtivada == 1):
+                return redirect('/paginaInicial')
+            
             return redirect('/')
         else:
             print('Deu errado no código meu amigo')

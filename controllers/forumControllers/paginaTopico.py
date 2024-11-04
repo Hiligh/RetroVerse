@@ -4,20 +4,25 @@ import mysql.connector
 from datetime import datetime
 
 def criarTopico():
-    # Verifica se o usuário está logado
+
+    conexao = conectarBD()
+    cursor = conexao.cursor(dictionary=True)
+
     if 'user_id' not in session:
-        flash("Você precisa estar logado para criar um tópico.", "danger")
         return redirect(url_for('loginUsuario'))
 
-    # Quando o formulário for submetido via POST
+    user_id = session.get('user_id')
+
+    cursor.execute("SELECT * FROM conta WHERE CodigoConta = %s LIMIT 1", (user_id,))
+    conta = cursor.fetchone()
+
     if request.method == 'POST':
         titulo = request.form.get('titulo')
         descricao = request.form.get('descricao')
-        codigoConta = session['user_id']  # Pega o ID do usuário logado
-        dataCriacao = datetime.now().date()  # Pega a data atual
-        curtidas = 0  # Tópicos novos começam com 0 curtidas
+        codigoConta = session['user_id']
+        dataCriacao = datetime.now().date()
+        curtidas = 0
 
-        # Conectar ao banco de dados
         conexao = conectarBD()
 
         insert_topico_query = """
@@ -29,12 +34,10 @@ def criarTopico():
         try:
             cursor = conexao.cursor()
             cursor.execute(insert_topico_query, topico_data)
-            conexao.commit()  # Salva as mudanças no banco de dados
+            conexao.commit()
 
-            # Pegar o ID do tópico recém-criado
             topico_id = cursor.lastrowid
 
-            # Salvar o ID do tópico na sessão
             session['topico_id'] = topico_id
 
             flash('Tópico criado com sucesso!', 'success')
@@ -49,5 +52,4 @@ def criarTopico():
             cursor.close()
             conexao.close()
 
-    # Se for uma requisição GET, apenas renderiza a página para criar o tópico
-    return render_template('topico.html')
+    return render_template('topico.html', dadosUser=conta)

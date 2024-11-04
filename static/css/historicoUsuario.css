@@ -109,9 +109,10 @@ button.nav-btn:focus,
 /* Conteúdo Principal */
 #div-principal {
     background-color: #f4f4f4;
-    border-radius: 2%;
+    border-radius: 10px;
     box-shadow: 5px 7px 14px 1px rgba(0, 0, 0, 0.712);
     padding: 2rem;
+    margin-left: 1rem;
 }
 
 /* Estilo de cada seção */
@@ -121,15 +122,23 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
-.divs-container-principal {
-    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
+/* Estilos de Cards */
+.card {
+    background-color: #fff;
+    border-radius: 15px; /* Bordas arredondadas nos cartões */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    margin-bottom: 20px; /* Espaçamento entre os cartões */
 }
 
-.divs-container-principal img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+.card-header {
+    background-color: var(--color1); /* Cor do cabeçalho dos cartões */
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card-body {
+    padding: 20px; /* Espaçamento interno do cartão */
 }
 
 /* Tamanho das imagens */
@@ -154,9 +163,9 @@ h2 {
         font-size: 1.4rem;
     }
 
-    .tamanhoImagens {
-        width: 80px;
-        height: 120px;
+    .card {
+        width: 90%; /* Ajuste de largura do cartão em telas menores */
+        margin: auto; /* Centraliza o cartão */
     }
 }
 
@@ -179,26 +188,7 @@ h2 {
     }
 }
 
-/* Estilos de Cards */
-.card {
-    width: 50%;
-    margin: auto;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    padding: 30px;
-}
-
-.card-title {
-    text-decoration-line: underline !important;
-    color: white !important;
-}
-
-.card-header {
-    background-image: linear-gradient(50deg, var(--color2), var(--color4), var(--color5)) !important;
-    color: white !important;
-}
-
+/* Efeito de Hover nos Jogos */
 .div-jogo:hover {
     transform: scale(1.1);
     transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
@@ -210,73 +200,37 @@ h2 {
 }
 
 
-/* Estilos de listas para estatísticas */
-.estatisticas-list {
+/* Estilos de listas */
+.avaliacoes-list, .comentarios-list, .likes-list {
     list-style-type: none;
     padding: 0;
 }
 
-/* Estilos de itens de lista de estatísticas */
-.estatistica-card {
+/* Estilos de itens de lista */
+.avaliacao-card, .comentario-card, .like-card {
     margin-bottom: 1rem;
 }
 
-/* Estilos de conteúdo arredondado para estatísticas */
-.estatistica-content {
-    background-color: #f8f9fa; /* Cor de fundo */
-    color: #333; /* Cor do texto */
-    padding: 1rem; /* Espaçamento interno */
-    border-radius: 1rem; /* Bordas arredondadas */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15); /* Sombra */
-    transition: transform 0.3s ease; /* Transição ao passar o mouse */
-}
-
-.estatistica-content:hover {
-    transform: scale(1.02); /* Efeito de zoom ao passar o mouse */
-}
-
-/* Estilos de itens de lista de informações pessoais */
-.informacao-card {
-    margin-bottom: 1rem;
-}
-
-.informacao-content {
+/* Estilos de conteúdo arredondado */
+.avaliacao-content, .comentario-content, .like-content {
     background-color: #f8f9fa;
     color: #333;
-    padding: 1rem; 
+    padding: 1rem;
     border-radius: 1rem;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
-    font-size: 1rem;
 }
 
-/* Adiciona um espaçamento na parte inferior da lista de informações */
-.informacoes-list {
-    list-style-type: none;
-    padding: 0;
+.avaliacao-content:hover, .comentario-content:hover, .like-content:hover {
+    transform: scale(1.02);
 }
 
-
-.informacao-content:hover {
-    transform: scale(1.02); /* Efeito de zoom ao passar o mouse */
+.card-header {
+    height: 50px;
+    background: linear-gradient(50deg, var(--color2), var(--color4), var(--color5));
+    color: white !important;
 }
 
-/* Aumenta o tamanho do cabeçalho */
-.card-header h5 {
-    font-size: 1.6rem; /* Aumenta o tamanho do texto do cabeçalho */
-}
-
-/* Aplica cor preta em todos os textos do modal */
-.modal{
-    color: black !important;
-}
-
-/* Define a cor do texto dos cards para preto */
-.card, .card{
-    color: black !important;
-}
-
-/* Define o texto dos botões no modal de confirmação para preto */
-.modal-footer .btn {
-    color: black !important;
+h5 {
+    font-size: 24px !important;
 }

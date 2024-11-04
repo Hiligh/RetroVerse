@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fórum - RetroAddicted</title>
+    <title>Fórum</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/forum.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -17,8 +17,8 @@
             <aside id="div-lateral" class="col-md-2 p-4 vh-100 d-flex flex-column">
                 <div class="text-center mb-4">
                     <a href="/perfilUsuario"><img src="../static/css/imagens/4646084.png" alt="Avatar" class="rounded-circle mb-2" width="100" height="100"></a>
-                    <h2>RetroAddicted</h2>
-                    <p>Jogador Nato</p>
+                    <h2>{{dadosUser.Nome.capitalize()}}</h2>
+                    <p>Pro Player!</p>
                 </div>
                 <nav class="mb-4 mt-auto">
                     <ul class="nav flex-column">
@@ -26,7 +26,7 @@
                             <a href="{{ url_for('paginaCatalogo') }}" class="nav-btn">Catálogo</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-btn">Reviews</a>
+                            <a href="{{ url_for('paginaInicial') }}" class="nav-btn">Página Inicial</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url_for('paginaForum') }}" class="nav-btn">Fórum</a>
@@ -63,19 +63,27 @@
                     <h2 class="mb-4">Tópicos Recentes</h2>
                     <div class="d-flex gap-2">
                         <a href="{{ url_for('paginaTopico') }}" class="btn btn-primary">➕ Criar tópico</a>
+                        <form method="get" action="{{ url_for('paginaForum') }}">
+                            <select name="ordenacao" onchange="this.form.submit()">
+                                <option value="Mais novos" {% if request.args.get('ordenacao') == 'Mais novos' %}selected{% endif %}>Mais novos</option>
+                                <option value="Mais antigos" {% if request.args.get('ordenacao') == 'Mais antigos' %}selected{% endif %}>Mais antigos</option>
+                                <option value="Mais comentados" {% if request.args.get('ordenacao') == 'Mais comentado' %}selected{% endif %}>Mais comentados</option>
+                                <option value="Mais curtidos" {% if request.args.get('ordenacao') == 'Mais curtido' %}selected{% endif %}>Mais curtidos</option>
+                            </select>
+                        </form>
                     </div>
                 
                     <hr>
                 
                     <div class="list-group">
                         {% for topico in topicos %}
-                        <!-- Ajeitar esse direcionamento para ir pra página do tópico! -->
+
                         <a href="{{ url_for('paginaVisualizarTopico', topico_id=topico['CodigoTopico']) }}" class="list-group-item list-group-item-action">
                             <h5 class="mb-1">{{ topico['Titulo'] }}</h5>
                             <p class="mb-1">{{ topico['Descricao'] }}</p>
                             <small>Criado por <strong>{{ topico['Nome'] }}</strong> - {{ topico['DataCriação'].strftime('%d/%m/%Y') }}</small>
                             <div class="d-flex justify-content-between mt-2">
-                                <small>💬 {{ topico.get('comentarios', 0) }} comentários</small>
+                                <small>💬 {{ topico['num_comentarios'] }} comentários</small>
                                 <small>👍 {{ topico['Curtidas'] }} curtidas</small>
                             </div>
                         </a>
