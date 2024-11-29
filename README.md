@@ -5,7 +5,7 @@ Esse projeto é feito com o intuito de aprender as técnicas da disciplina de ge
 ## Como usar
 
 ### Configurando os pacotes:
-- Após baixar o zip e extrair o arquivo no disco C: execute o arquivo ScriptDeInstalação para baixar todas as dependências.
+- Após baixar o zip e extrair o arquivo no disco C: (O zip deve ser extraido em alguma pasta do disco C:) execute o arquivo ScriptDeInstalação para baixar todas as dependências.
 
 - O processo de localizar o arquivo dump pode demorar um pouco.
 
@@ -25,7 +25,17 @@ Esse projeto é feito com o intuito de aprender as técnicas da disciplina de ge
 flask --app server run --debug
 ~~~
 
+- Após executar o comando, no link disponibilizado após o running, segure ctrl e aperte em cima do link:
+  - ![image](https://github.com/user-attachments/assets/632bce13-a1f3-4eb0-acb6-f423a7997e85)
+
+
 - Ou apenas vá no arquivo server.py e rode o programa normalmente(usando o vscode com a extensão do python instalada).
+  - ![image](https://github.com/user-attachments/assets/591f0fde-3217-4659-88e6-f3efe6aac7cd)
+
+  - OBS: Caso dê erros executando o sistema utilizando a extensão do python, é problema da própria extensão. Apenas utilize o comando:
+  ~~~python
+  flask --app server run --debug
+  ~~~
 
 ## Caso o ScriptDeInstação não funcione, faça os seguintes passos:
 
