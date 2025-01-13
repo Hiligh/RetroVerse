@@ -22,8 +22,6 @@ from controllers.systemControllers.logoff import deslogarUsuario
 from controllers.systemControllers.historicoUsuario import mostrarHistorico
 from controllers.systemControllers.autenticacaoDoisFatores import ativarAutenticacao
 
-#Teste Requisições!
-#CHAVE API STEAM: 8BF1A490FA51FF973B976E66061F55CE
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'minha_chave_secreta'
 
